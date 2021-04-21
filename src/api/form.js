@@ -1,9 +1,10 @@
+//this form for sending form to database
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
-function Apps() {
+function Forms() {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
@@ -11,8 +12,9 @@ function Apps() {
   const [gender, setGender] = useState();
   const [birthday, setBirthday] = useState();
   const [about, setAbout] = useState();
-  const [post, setPost] = useState(0);
+  const [post, setPost] = useState(0);//butona her tıklandığında artıyor. useEffect butona tıklandındıgını bildirmek için kullanılıyor.
 
+  
   function submit(e) {
     e.preventDefault();
     setPost(post + 1);
@@ -34,10 +36,8 @@ function Apps() {
         }),
       };
 
-      fetch(
-        "http://174.138.103.233/api/employees",
-        requestOptions
-      ).then((response) => response.json());
+      fetch("http://174.138.103.233/api/employees",requestOptions)
+      .then((response) => response.json());
     }
     postRequest();
   }, [post]);
@@ -111,4 +111,4 @@ function Apps() {
     </>
   );
 }
-export default Apps;
+export default Forms;
