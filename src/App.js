@@ -5,7 +5,7 @@ import Apps from "./api/form";
 function App() {
   return (
     <div className="App">
-      <Apps />
+      <Apps/>
       <Tables/>
     </div>
   );

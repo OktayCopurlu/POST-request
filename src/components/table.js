@@ -34,7 +34,7 @@ export default function Tables() {
           <tbody>
             {status.map((element,index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td>{index}</td>
                   <td>{element.firstName}</td>
                   <td>{element.lastName}</td>
