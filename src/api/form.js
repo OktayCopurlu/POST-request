@@ -2,7 +2,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Forms() {
   const [firstName, setFirstName] = useState();
@@ -12,35 +12,28 @@ function Forms() {
   const [gender, setGender] = useState();
   const [birthday, setBirthday] = useState();
   const [about, setAbout] = useState();
-  const [post, setPost] = useState(0);//butona her tıklandığında artıyor. useEffect butona tıklandındıgını bildirmek için kullanılıyor.
 
-  
   function submit(e) {
     e.preventDefault();
-    setPost(post + 1);
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        gender: gender,
+        birthday: birthday,
+        email: email,
+        password: password,
+        about: about,
+      }),
+    };
+
+    fetch(
+      "http://174.138.103.233/api/employees",
+      requestOptions
+    ).then((response) => response.json());
   }
-
-  useEffect(() => {
-    function postRequest() {
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: firstName,
-          lastName: lastName,
-          gender: gender,
-          birthday: birthday,
-          email: email,
-          password: password,
-          about: about,
-        }),
-      };
-
-      fetch("http://174.138.103.233/api/employees",requestOptions)
-      .then((response) => response.json());
-    }
-    postRequest();
-  }, [post]);
 
   return (
     <>
