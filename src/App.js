@@ -8,18 +8,15 @@
 */
 
 import "./App.css";
-import Tables from "./components/table";
-import Forms from "./api/form";
+import Navigation from "./components/Navigation";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      {/* POST request */}
-      <Forms/>
-
-      {/* GET request */}
-      <Tables/>
-    </div>
+    <Router>
+    
+      <Navigation />
+    </Router>
   );
 }
 

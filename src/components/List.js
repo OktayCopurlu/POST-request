@@ -8,15 +8,16 @@ import { useState, useEffect } from "react";
 export default function Tables() {
 
   const [status, setStatus] = useState([]);
+  
   useEffect(() => {
    
     const getReport = async () => {
       const response = await fetch("http://174.138.103.233/api/employees");
       const dataJson = await response.json();
       setStatus(dataJson);
-    };
+    };  
     getReport();
-  }, [status]);
+  }, []);
   
   return (
     <>
