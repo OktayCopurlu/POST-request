@@ -32,6 +32,7 @@ export default function Tables() {
               <th>Gender</th>
               <th>Birthday</th>
               <th>About</th>
+              <th>Password</th>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +46,7 @@ export default function Tables() {
                   <td>{element.gender}</td>
                   <td>{element.birthday}</td>
                   <td>{element.about}</td>
+                  <td>{element.password}</td>
                 </tr>
               );
             })}

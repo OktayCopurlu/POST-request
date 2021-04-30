@@ -10,12 +10,22 @@
 import "./App.css";
 import Navigation from "./components/Navigation";
 import { BrowserRouter as Router } from "react-router-dom";
-
+import { Route, Switch } from "react-router-dom";
+import Tables from "./components/List";
+import Forms from "./components/Form";
 function App() {
   return (
-    <Router>
     
+    <Router>
       <Navigation />
+      <Switch>
+        <Route exact path="/">
+          <Tables />
+        </Route>
+        <Route path="/Register">
+          <Forms />
+        </Route>
+      </Switch>
     </Router>
   );
 }
