@@ -8,17 +8,19 @@
 */
 
 import "./App.css";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/Navigation/Navigation";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
-import Tables from "./components/List";
-import Forms from "./components/Form";
+import Tables from "./components/List/List";
+import Forms from "./components/Form/Form";
+
 function App() {
   return (
     
     <Router>
       <Navigation />
       <Switch>
+     
         <Route exact path="/">
           <Tables />
         </Route>
